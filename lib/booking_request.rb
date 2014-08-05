@@ -1,11 +1,31 @@
 class BookingRequest
 
+  def initialize(id,startrow,startseat,endrow,endseat)
+    @id = id
+    @startrow = startrow
+    @startseat = startseat
+    @endrow = endrow
+    @endseat = endseat
+  end
+
   def id
-    0
+    @id
   end
 
   def startrow
-    0
+    @startrow
+  end
+
+  def startseat 
+    @startseat
+  end
+
+  def endrow
+    @endrow
+  end
+
+  def endseat
+    @endseat
   end
 
 end
