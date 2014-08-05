@@ -1,9 +1,14 @@
-## Logic
+#Cinema booking system
+A technical test to develop a sytem to check booking requests
+
+## How to run it:
+
+## Logic:
 - Obtain a booking request
 -- check that all seats are on the same row
 -- check that the number of seats is <= 5
 -- check that each seat in the booking is not already taken
--- check that the number of any adjacent seats to the start and end of the proposed booking are != 1 (ie can be 0 or-[[[[[[[[[[[plk.o]]]]]]]]]]] >1)
+-- check that the number of any adjacent seats to the start and end of the proposed booking are != 1 (ie can be 0 or >1)
 -- check that the seat number is between 0 and 49
 -- check that the row number is betwwen 0 and 99
 - if no errors then make the booking
@@ -25,3 +30,11 @@ Rows and seats are both 0-indexed. Note the trailing comma is absent on the fina
 You should treat this as an opportunity to demonstrate your coding style. Solutions should ideally be written in Java
 or C#, but solutions in Ruby, JavaScript and Scala are also acceptable. Please discuss with Softwire before using any
 other language.
+
+## Developed by
+
+[Steve Musgrave]
+
+[Steve Musgrave]:https://github.com/StephanMusgrave
+
+
