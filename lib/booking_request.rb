@@ -29,3 +29,13 @@ class BookingRequest
   end
 
 end
+
+def checkrow(row)
+  result = row <= 99 ? true : false
+  result
+end
+
+def checkseat(seat)
+  result = seat <= 49 ? true :false
+  result
+end
