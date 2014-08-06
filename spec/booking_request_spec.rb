@@ -54,9 +54,15 @@ describe BookingRequest do
       expect(checkseat(invalidbooking.endseat)).to be false
     end
 
-    it 'should not accept a booking ofmore than 5 seats' do
+    it 'should not accept a booking of more than 5 seats' do
       expect(checksize(invalidbooking.startseat,invalidbooking.endseat)).to be false
     end
+
+    it 'should not accept a booking of less than 1 seats' do
+      smallbooking = BookingRequest.new(2,1,4,1,3)
+      expect(checksize(smallbooking.startseat,smallbooking.endseat)).to be false
+    end
+
 
     # syntax if checkrow is a class method
     # it 'should not accept a row number greater than 99' do
