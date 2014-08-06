@@ -3,13 +3,13 @@ class Cinema
   def initialize(rows,seats)
     @rows  = rows
     @seats = seats
-    @cinema = Array.new(@rows) { Array.new(@seats) }
-    @cinema
+    @auditorium = Array.new(@rows) { Array.new(@seats) }
+    @auditorium
   end
 
   # def create_cinema
-  #   cinema = Array.new(@rows) { Array.new(@seats) }
-  #   cinema
+  #   auditorium = Array.new(@rows) { Array.new(@seats) }
+  #   auditorium
   # end
 
   def seats
@@ -20,11 +20,11 @@ class Cinema
     @rows
   end
 
-  def cinema
-    @cinema
+  def auditorium
+    @auditorium
   end
 
 end
 
-    # cinema = Array.new(@rows) { Array.new(@seats) }
-    # cinema[0][0]=1
+    # auditorium = Array.new(@rows) { Array.new(@seats) }
+    # auditorium[0][0]=1
