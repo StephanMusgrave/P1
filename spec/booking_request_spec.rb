@@ -2,7 +2,7 @@ require 'booking_request'
 
 describe BookingRequest do
   let (:booking) { BookingRequest.new(0,1,5,1,7) }
-  let (:invalidbooking) { BookingRequest.new(1,1,51,101,52) }
+  let (:invalidbooking) { BookingRequest.new(1,1,41,101,52) }
 
   context "content" do
 
@@ -37,6 +37,10 @@ describe BookingRequest do
     it 'should accept a seat number <= 49' do
       expect(checkseat(booking.endseat)).to be true
     end
+
+    it 'should accept a booking of between 1 and 5 seats' do
+      expect(checksize(booking.startseat,booking.endseat)).to be true
+    end
     
   end
 
@@ -48,6 +52,10 @@ describe BookingRequest do
 
     it 'should not accept a seat number greater than 49' do
       expect(checkseat(invalidbooking.endseat)).to be false
+    end
+
+    it 'should not accept a booking ofmore than 5 seats' do
+      expect(checksize(invalidbooking.startseat,invalidbooking.endseat)).to be false
     end
 
     # syntax if checkrow is a class method

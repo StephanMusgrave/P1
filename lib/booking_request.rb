@@ -39,3 +39,8 @@ def checkseat(seat)
   result = seat <= 49 ? true :false
   result
 end
+
+def checksize(startseat,endseat)
+  result = (endseat-startseat+1) <= 5 ? true : false
+end
+
