@@ -11,3 +11,11 @@ class Cinema
   end
 
 end
+
+def display_cinema(cinema)
+  row = 0
+  while row < cinema.auditorium.length
+    print row," ",cinema.auditorium[row] ; puts
+    row += 1
+  end
+end

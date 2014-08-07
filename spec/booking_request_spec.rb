@@ -105,11 +105,18 @@ describe BookingRequest do
 
    it 'should add a valid booking to the Cinema' do
     make_booking(validbooking,odeon)
+    # display_cinema(odeon)
     expect(odeon.auditorium[1][4]).to eq 0
     expect(odeon.auditorium[1][5]).to eq 1
-    # expect(odeon.auditorium[1][6]).to eq 1
-    # expect(odeon.auditorium[1][7]).to eq 1
+    expect(odeon.auditorium[1][6]).to eq 1
+    expect(odeon.auditorium[1][7]).to eq 1
     expect(odeon.auditorium[1][8]).to eq 0
+   end
+
+   it 'should not make a booking if any of the seats are already booked' do
+   end
+
+   it 'should not make a booking if it would leave one empty seat at either end of the block' do
    end
 
 

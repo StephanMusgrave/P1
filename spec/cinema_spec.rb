@@ -21,6 +21,7 @@ let (:everyman) { Cinema.new(100,50) }
     end
 
     it 'should only have empty seats when created' do
+      # display_cinema(odeon)
       expect(odeon.auditorium[0][0]).to eq 0
       expect(odeon.auditorium[0][49]).to eq 0
       expect(odeon.auditorium[99][0]).to eq 0
@@ -37,11 +38,13 @@ let (:everyman) { Cinema.new(100,50) }
         everyman.auditorium[row].map! {|x| 1 }
         row = row + 1
       end
+      # display_cinema(everyman)
       expect(everyman.auditorium[0][0]).to eq 1
       expect(everyman.auditorium[0][49]).to eq 1
       expect(everyman.auditorium[99][0]).to eq 1
       expect(everyman.auditorium[99][49]).to eq 1
-    end
-  end
 
+    end
+ 
+ end
 end
