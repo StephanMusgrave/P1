@@ -44,12 +44,13 @@ def checksize(startseat,endseat)
   result = ((endseat-startseat+1) <= 5 && (endseat-startseat+1) >=1) ? true : false
 end
 
-def checkbooking(booking,cinema)
+def check_booking(booking,cinema)
   validity = (  checkrow(booking.startrow) &&
                 checkseat(booking.endseat) && 
                 (booking.startrow == booking.endrow)
               )
   validity
+
 end
 
 def get_bookings(filename)
@@ -68,5 +69,14 @@ def get_bookings(filename)
     end
   booking_table
 end
+
+def make_booking(booking,cinema)
+  seat = booking.startseat
+  while seat <= booking.endseat
+    cinema.auditorium[booking.startrow][seat] = 1
+    seat = seat + 1
+  end
+end
+
 
 

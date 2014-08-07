@@ -2,30 +2,30 @@ require 'booking_request'
 require 'cinema'
 
 describe BookingRequest do
-  let (:booking) { BookingRequest.new(0,1,5,1,7) }
+  let (:validbooking) { BookingRequest.new(0,1,5,1,7) }
   let (:invalidbooking) { BookingRequest.new(1,1,41,101,52) }
   let (:odeon)    { Cinema.new(100,50) }
 
   context "content" do
 
     it 'should have an id' do
-      expect(booking.id).to eq 0
+      expect(validbooking.id).to eq 0
     end
 
     it 'should have a starting row' do
-      expect(booking.startrow).to eq 1
+      expect(validbooking.startrow).to eq 1
     end
 
     it 'should have a starting seat' do
-      expect(booking.startseat).to eq 5 
+      expect(validbooking.startseat).to eq 5 
     end
 
     it 'should have an ending row' do
-      expect(booking.endrow).to eq 1 
+      expect(validbooking.endrow).to eq 1 
     end
 
     it 'should have an ending seat' do
-      expect(booking.endseat).to eq 7 
+      expect(validbooking.endseat).to eq 7 
     end
 
   end
@@ -33,15 +33,15 @@ describe BookingRequest do
   context "valid booking data" do
 
     it 'should accept a row number <= 99' do
-      expect(checkrow(booking.endrow)).to be true
+      expect(checkrow(validbooking.endrow)).to be true
     end
 
     it 'should accept a seat number <= 49' do
-      expect(checkseat(booking.endseat)).to be true
+      expect(checkseat(validbooking.endseat)).to be true
     end
 
-    it 'should accept a booking of between 1 and 5 seats' do
-      expect(checksize(booking.startseat,booking.endseat)).to be true
+    it 'should accept a validbooking of between 1 and 5 seats' do
+      expect(checksize(validbooking.startseat,validbooking.endseat)).to be true
     end
     
   end
@@ -97,10 +97,19 @@ describe BookingRequest do
 
   end
 
-  context 'checking a booking request for a Cinema' do
+  context 'a booking request for a Cinema' do
    
    it 'should be a valid booking' do
-    expect(checkbooking(booking,odeon)).to be true
+    expect(check_booking(validbooking,odeon)).to be true
+   end
+
+   it 'should add a valid booking to the Cinema' do
+    make_booking(validbooking,odeon)
+    expect(odeon.auditorium[1][4]).to eq 0
+    expect(odeon.auditorium[1][5]).to eq 1
+    # expect(odeon.auditorium[1][6]).to eq 1
+    # expect(odeon.auditorium[1][7]).to eq 1
+    expect(odeon.auditorium[1][8]).to eq 0
    end
 
 
