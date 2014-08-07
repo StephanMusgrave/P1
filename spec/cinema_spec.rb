@@ -3,12 +3,6 @@ require 'cinema'
 describe Cinema do
 let (:odeon)    { Cinema.new(100,50) }
 let (:everyman) { Cinema.new(100,50) }
-# row = 0
-# until row > 99
-#   odeon.auditorium[row].map! {|x| 1 }
-# #   row = row + 1
-# end
-# puts odeon.auditorium
 
   context "at set up" do
   

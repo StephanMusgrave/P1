@@ -30,21 +30,21 @@ class BookingRequest
 
 end
 
-def checkrow(row)
+def check_row(row)
   result = row <= 99 ? true : false
   result
 end
 
-def checkseat(seat)
+def check_seat(seat)
   result = seat <= 49 ? true :false
   result
 end
 
-def checksize(startseat,endseat)
+def check_size(startseat,endseat)
   result = ((endseat-startseat+1) <= 5 && (endseat-startseat+1) >=1) ? true : false
 end
 
-def checkavailable(booking,cinema)
+def check_available(booking,cinema)
   available = true
   seat = booking.startseat
   while seat <= booking.endseat
@@ -54,12 +54,26 @@ def checkavailable(booking,cinema)
   available
 end
 
+def check_singleton(booking,cinema)
+  startseat = booking.startseat
+  endseat = booking.endseat
+  return false if (
+                    (startseat == 1) && 
+                    (cinema.auditorium[booking.startrow][0] == 0)
+                  )
+  return false if (
+                    (cinema.auditorium[booking.startrow][startseat-1] == 0) && 
+                    (cinema.auditorium[booking.startrow][startseat-2] == 1)
+                    )
+  true
+end
+
 def check_booking(booking,cinema)
-  validity = (  checkrow(booking.startrow) &&
-                checkseat(booking.endseat) && 
+  validity = (  check_row(booking.startrow) &&
+                check_seat(booking.endseat) && 
                 (booking.startrow == booking.endrow)
               )
-  availability = checkavailable(booking,cinema)
+  availability = check_available(booking,cinema)
   status = validity && availability 
   status
 end
