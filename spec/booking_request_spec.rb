@@ -70,9 +70,15 @@ describe BookingRequest do
     
   end
 
-  context "getting a single booking from a file" do
+  context "getting booking requests from a file" do
 
-
+    it 'should be able to read the rows from the file sample_booking_requests' do
+      request_list = get_bookings('data/sample_booking_requests')
+      expect(request_list[0][1]).to eq 89
+      expect(request_list[0][3]).to eq 89
+      expect(request_list[499][1]).to eq 14
+      expect(request_list[499][3]).to eq 14
+    end
 
   end
 

@@ -21,10 +21,10 @@ let (:everyman) { Cinema.new(100,50) }
     end
 
     it 'should have only empty seats when created' do
-      expect(odeon.auditorium[0][0]).to eq nil
-      expect(odeon.auditorium[0][49]).to eq nil
-      expect(odeon.auditorium[99][0]).to eq nil
-      expect(odeon.auditorium[99][49]).to eq nil
+      expect(odeon.auditorium[0][0]).to eq 0
+      expect(odeon.auditorium[0][49]).to eq 0
+      expect(odeon.auditorium[99][0]).to eq 0
+      expect(odeon.auditorium[99][49]).to eq 0
     end
 
   end
