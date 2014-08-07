@@ -44,6 +44,14 @@ def checksize(startseat,endseat)
   result = ((endseat-startseat+1) <= 5 && (endseat-startseat+1) >=1) ? true : false
 end
 
+def checkbooking(booking,cinema)
+  validity = (  checkrow(booking.startrow) &&
+                checkseat(booking.endseat) && 
+                (booking.startrow == booking.endrow)
+              )
+  validity
+end
+
 def get_bookings(filename)
   require 'csv'
   booking_table =[]
@@ -60,3 +68,5 @@ def get_bookings(filename)
     end
   booking_table
 end
+
+

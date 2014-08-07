@@ -1,8 +1,10 @@
 require 'booking_request'
+require 'cinema'
 
 describe BookingRequest do
   let (:booking) { BookingRequest.new(0,1,5,1,7) }
   let (:invalidbooking) { BookingRequest.new(1,1,41,101,52) }
+  let (:odeon)    { Cinema.new(100,50) }
 
   context "content" do
 
@@ -92,6 +94,14 @@ describe BookingRequest do
       expect(request_list[499][2]).to eq 2
       expect(request_list[499][4]).to eq 4
     end
+
+  end
+
+  context 'checking a booking request for a Cinema' do
+   
+   it 'should be a valid booking' do
+    expect(checkbooking(booking,odeon)).to be true
+   end
 
 
   end
