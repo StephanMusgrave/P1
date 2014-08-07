@@ -45,9 +45,19 @@ def checksize(startseat,endseat)
 end
 
 def get_booking(filename)
-  bookingfile = File.open(filename)
-  booking = bookingfile.readline
-  print booking
-  bookingfile.close
-  # true
+  require 'csv'
+  CSV.open(filename, 'r').each do |booking|
+    id = booking[0].gsub("(","").to_i
+    startrow = booking[1].gsub(/\:\d+/,"").to_i
+    startseat = booking[1].gsub(/\d+:/,"").to_i
+    endrow = booking[2].gsub(/\:\d+/,"").to_i
+    endseat = booking[2].gsub(/\d+:/,"").to_i
+    print booking.inspect, " ", id," ", startrow," ", startseat," ", endrow," ", endseat
+    puts
+end
+  # bookingfile = File.open(filename)
+  # booking = bookingfile.readline
+  # print booking
+  # bookingfile.close
+  # # true
 end
