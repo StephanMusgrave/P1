@@ -1,32 +1,27 @@
 class BookingRequest
 
   def initialize(id,startrow,startseat,endrow,endseat)
-    @id = id
-    @startrow = startrow
-    @startseat = startseat
-    @endrow = endrow
-    @endseat = endseat
-    @booking_request =[@id,@startrow,@startseat,@endrow,@endseat]
+    @booking_request =[id,startrow,startseat,endrow,endseat]
   end
 
   def id
-    @id
+    @booking_request[0]
   end
 
   def startrow
-    @startrow
+    @booking_request[1]
   end
 
   def startseat 
-    @startseat
+    @booking_request[2]
   end
 
   def endrow
-    @endrow
+    @booking_request[3]
   end
 
   def endseat
-    @endseat
+    @booking_request[4]
   end
 
   def booking_request
