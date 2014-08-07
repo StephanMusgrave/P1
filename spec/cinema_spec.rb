@@ -10,7 +10,7 @@ let (:everyman) { Cinema.new(100,50) }
 # end
 # puts odeon.auditorium
 
-  context "set up" do
+  context "at set up" do
   
     it 'should have 50 seats in a row' do
       expect(odeon.auditorium[0].length).to eq 50
@@ -29,7 +29,7 @@ let (:everyman) { Cinema.new(100,50) }
 
   end
 
-  context "fully booked" do
+  context "when fully booked" do
 
     it 'should have only full seats' do
       row = 0

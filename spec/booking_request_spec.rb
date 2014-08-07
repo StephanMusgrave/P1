@@ -63,12 +63,18 @@ describe BookingRequest do
       expect(checksize(smallbooking.startseat,smallbooking.endseat)).to be false
     end
 
-
     # syntax if checkrow is a class method
     # it 'should not accept a row number greater than 99' do
     #   expect(booking.checkrow(booking.endrow)).to be false
     # end
     
   end
+
+  context "getting a single booking from a file" do
+
+
+
+  end
+
 
 end
