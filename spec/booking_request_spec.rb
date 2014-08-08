@@ -125,14 +125,21 @@ describe BookingRequest do
    end
 
    it 'should not make a booking if it would leave one empty seat at either end of the block' do
-   make_booking(validbooking,odeon)
-   # display_cinema(odeon)
-   booking1 = BookingRequest.new(0,1,1,1,4)
-   booking2 = BookingRequest.new(0,1,9,1,9)
-   expect(check_singleton(validbooking,odeon)).to be true
-   expect(check_singleton(booking1,odeon)).to be false
-   expect(check_singleton(booking2,odeon)).to be false
-
+     make_booking(validbooking,odeon)
+     # display_cinema(odeon)
+     booking2 = BookingRequest.new(0,1,0,1,4)
+     booking3 = BookingRequest.new(0,1,1,1,4)
+     booking4 = BookingRequest.new(0,1,9,1,9)
+     booking5 = BookingRequest.new(0,1,49,1,49)
+     booking6 = BookingRequest.new(0,1,48,1,48)
+     booking7 = BookingRequest.new(0,1,3,1,3)
+     booking8 = BookingRequest.new(0,1,2,1,2)
+     expect(check_singleton(booking2,odeon)).to be false
+     expect(check_singleton(booking3,odeon)).to be true
+     expect(check_singleton(booking4,odeon)).to be true
+     expect(check_singleton(booking5,odeon)).to be false
+     expect(check_singleton(booking6,odeon)).to be true
+     expect(check_singleton(booking8,odeon)).to be false
    end
 
 

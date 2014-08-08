@@ -57,15 +57,23 @@ end
 def check_singleton(booking,cinema)
   startseat = booking.startseat
   endseat = booking.endseat
-  return false if (
-                    (startseat == 1) && 
-                    (cinema.auditorium[booking.startrow][0] == 0)
-                  )
-  return false if (
-                    (cinema.auditorium[booking.startrow][startseat-1] == 0) && 
-                    (cinema.auditorium[booking.startrow][startseat-2] == 1)
-                    )
-  true
+  singleton = false
+  singleton_before = false
+  singleton_after = false
+  singleton_before = true if ((cinema.auditorium[booking.startrow][startseat-1] == 0) && ((cinema.auditorium[booking.startrow][startseat-2] == 1) || (startseat - 2 < 0)))
+  singleton_after  = true if ((cinema.auditorium[booking.startrow][endseat+1] == 0) && ((cinema.auditorium[booking.startrow][endseat+2] == 1) || (endseat + 2 > 49)))
+  singleton_before = false if startseat == 0
+  singleton_after = false if endseat == 49
+  singleton = true if ((singleton_before == true) || (singleton_after == true))
+  # puts "---" 
+  # print cinema.auditorium[booking.startrow]; puts
+  # print "startseat: ", startseat, ", endseat: ",endseat ; puts
+  # print cinema.auditorium[booking.startrow][startseat-2],cinema.auditorium[booking.startrow][startseat-1]
+  # print " <> ",cinema.auditorium[booking.startrow][endseat+1],cinema.auditorium[booking.startrow][endseat+2]
+  # puts
+  # print " before: ",singleton_before,", after: ",singleton_after,", singleton: ",singleton ; puts
+  # puts "---" 
+  singleton
 end
 
 def check_booking(booking,cinema)
