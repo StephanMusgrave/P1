@@ -1,8 +1,8 @@
 require 'cinema'
 
 describe Cinema do
-let (:odeon)    { Cinema.new(100,50) }
-let (:everyman) { Cinema.new(100,50) }
+  let (:odeon)    { Cinema.new(100,50) }
+  let (:everyman) { Cinema.new(100,50) }
 
   context "at set up" do
   

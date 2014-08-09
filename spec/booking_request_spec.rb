@@ -65,37 +65,7 @@ describe BookingRequest do
       smallbooking = BookingRequest.new(2,1,4,1,3)
       expect(check_size(smallbooking.startseat,smallbooking.endseat)).to be false
     end
-
-    # syntax if checkrow is a class method
-    # it 'should not accept a row number greater than 99' do
-    #   expect(booking.checkrow(booking.endrow)).to be false
-    # end
     
-  end
-
-  context "getting booking requests from a file" do
-
-    it 'should obtain 500 booking requests from the file sample_booking_requests' do
-      request_list = get_bookings('data/sample_booking_requests')
-      expect(request_list.length).to eq 500
-    end
-
-    it 'should be able to read the rows from the file sample_booking_requests' do
-      request_list = get_bookings('data/sample_booking_requests')
-      expect(request_list[0][1]).to eq 89
-      expect(request_list[0][3]).to eq 89
-      expect(request_list[499][1]).to eq 14
-      expect(request_list[499][3]).to eq 14
-    end
-
-    it 'should be able to read the seats from the file sample_booking_requests' do
-      request_list = get_bookings('data/sample_booking_requests')
-      expect(request_list[0][2]).to eq 13
-      expect(request_list[0][4]).to eq 13
-      expect(request_list[499][2]).to eq 2
-      expect(request_list[499][4]).to eq 4
-    end
-
   end
 
   context 'a booking request for a Cinema' do

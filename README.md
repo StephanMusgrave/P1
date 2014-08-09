@@ -1,6 +1,15 @@
 #Cinema booking system
 A technical test to develop a sytem to check booking requests
 
+## Developed by
+[Steve Musgrave]
+
+## Technologies used
+|Technology                 |Used for                        |
+|---------------------------|--------------------------------|
+|Ruby 2.1.2                 |Programming language            |
+|Rspec                      |Test Driven Development - unit testing  |
+
 ## How to run it:
 
 ## Logic:
@@ -31,9 +40,7 @@ You should treat this as an opportunity to demonstrate your coding style. Soluti
 or C#, but solutions in Ruby, JavaScript and Scala are also acceptable. Please discuss with Softwire before using any
 other language.
 
-## Developed by
 
-[Steve Musgrave]
 
 [Steve Musgrave]:https://github.com/StephanMusgrave
 
