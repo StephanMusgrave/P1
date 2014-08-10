@@ -32,7 +32,7 @@ describe "Processing a file of booking requests" do
 
   context "processing the bookings from the file sample_booking_requests" do
 
-    it 'should read, check and make bookings for the valid booking requests in sample_booking_requests' do
+    it 'should read, check and make bookings for the 489 valid booking requests in sample_booking_requests' do
       empire = Cinema.new(100,50)
       file = "data/sample_booking_requests"
       process_bookings('data/sample_booking_requests',empire)

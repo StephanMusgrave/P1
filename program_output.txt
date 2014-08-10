@@ -1,0 +1,19 @@
+
+------------------------------------------------------
+
+Your booking Id Number: 32 has not been accepted 
+Your booking Id Number: 78 has not been accepted 
+Your booking Id Number: 136 has not been accepted 
+Your booking Id Number: 143 has not been accepted 
+Your booking Id Number: 194 has not been accepted 
+Your booking Id Number: 294 has not been accepted 
+Your booking Id Number: 376 has not been accepted 
+Your booking Id Number: 386 has not been accepted 
+Your booking Id Number: 402 has not been accepted 
+Your booking Id Number: 411 has not been accepted 
+Your booking Id Number: 487 has not been accepted 
+
+A total of 489 bookings were made successfully and there were 11 unsuccessful booking requests
+
+------------------------------------------------------
+

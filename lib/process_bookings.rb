@@ -79,25 +79,26 @@ def process_bookings(file,cinema)
   booking_request_list = get_bookings(file)
   valid_booking_count = 0
   invalid_booking_count = 0
-  puts "\e[H\e[2J","---------------------------------------------------";puts
+  puts;puts "------------------------------------------------------";puts
 
-  booking_request_list.each { | line |
-                              booking = BookingRequest.new(line[0],line[1],line[2],line[3],line[4])
-                             if check_booking(booking,cinema) 
+  booking_request_list.each { | request |
+                              booking = BookingRequest.new(request[0],request[1],request[2],request[3],request[4])
+                              if check_booking(booking,cinema) 
                                 valid_booking_count += 1
                                 make_booking(booking,cinema)
                               else
                                 invalid_booking_count += 1
                                 print  "Your booking Id Number: ",booking.id," has not been accepted ","\n"
                               end
-                             }
+                            }
   puts
   puts "A total of #{valid_booking_count} bookings were made successfully and there were #{invalid_booking_count} unsuccessful booking requests"                       
-  puts;puts "---------------------------------------------------";puts
+  puts;puts "------------------------------------------------------";puts
   # cinema
 end
 
 empire = Cinema.new(100,50)
 file = file_name || "data/sample_booking_requests"
 process_bookings(file,empire)
+# display_cinema(empire)
 

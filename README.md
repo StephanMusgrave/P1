@@ -1,5 +1,5 @@
 #Cinema booking system
-A technical test to develop a system to check booking requests
+A technical test to develop a system to check booking requests.
 
 ## Developed by
 [Steve Musgrave]
@@ -10,9 +10,15 @@ A technical test to develop a system to check booking requests
 |Ruby 2.1.2                 |Programming language            |
 |Rspec                      |Test Driven Development - unit testing  |
 
-## How to run it:
+## How to run the program:
 
-ruby 'lib/process_bookings.rb' 'data/sample_booking_requests'
+From your terminal:
+
+-$ git clone git@github.com:StephanMusgrave/cinema-booking.git
+
+-$ cd cinema-booking
+
+-$ ruby 'lib/process_bookings.rb' 'data/sample_booking_requests'
 
 ## Logic:
 - Obtain a booking request
@@ -37,10 +43,6 @@ yield 11 rejected requests.
 The text file of bookings contains one booking per line, where a booking is of the following form:
   (<id>,<index of first seat row>:<index of first seat within row>,<index of last seat row>:<index of last seat within row>),
 Rows and seats are both 0-indexed. Note the trailing comma is absent on the final line.
-
-You should treat this as an opportunity to demonstrate your coding style. Solutions should ideally be written in Java
-or C#, but solutions in Ruby, JavaScript and Scala are also acceptable. Please discuss with Softwire before using any
-other language.
 
 
 
