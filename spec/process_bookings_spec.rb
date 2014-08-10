@@ -47,6 +47,4 @@ describe "Processing a file of booking requests" do
 
   end
 
-
-
 end

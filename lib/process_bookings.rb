@@ -30,14 +30,16 @@ end
 def check_singleton(booking,cinema)
   startseat = booking.startseat
   endseat = booking.endseat
-  singleton_any = false
+  singleton_any    = false
   singleton_before = false
-  singleton_after = false
-  singleton_before = true if ((cinema.auditorium[booking.startrow][startseat-1] == 0) && ((cinema.auditorium[booking.startrow][startseat-2] == 1) || (startseat - 2 < 0)))
-  singleton_after  = true if ((cinema.auditorium[booking.startrow][endseat+1] == 0) && ((cinema.auditorium[booking.startrow][endseat+2] == 1) || (endseat + 2 > 49)))
+  singleton_after  = false
+  singleton_before = true if  ((cinema.auditorium[booking.startrow][startseat-1] == 0) && 
+                              ((cinema.auditorium[booking.startrow][startseat-2] == 1) || (startseat - 2 < 0)))
+  singleton_after  = true if  ((cinema.auditorium[booking.startrow][endseat+1] == 0) && 
+                              ((cinema.auditorium[booking.startrow][endseat+2] == 1) || (endseat + 2 > 49)))
   singleton_before = false if startseat == 0
-  singleton_after = false if endseat == 49
-  singleton_any = true if ((singleton_before == true) || (singleton_after == true))
+  singleton_after  = false if endseat == 49
+  singleton_any    = true  if ((singleton_before == true) || (singleton_after == true))
   singleton_any
 end
 
@@ -56,12 +58,12 @@ def get_bookings(filename)
   require 'csv'
   booking_table =[]
     CSV.open(filename, 'r').each do |booking|
-      id = booking[0].gsub("(","").to_i
-      startrow = booking[1].gsub(/\:\d+/,"").to_i
+      id        = booking[0].gsub("(","").to_i
+      startrow  = booking[1].gsub(/\:\d+/,"").to_i
       startseat = booking[1].gsub(/\d+:/,"").to_i
-      endrow = booking[2].gsub(/\:\d+/,"").to_i
-      endseat = booking[2].gsub(/\d+:/,"").to_i
-      booking = BookingRequest.new(id,startrow,startseat,endrow,endseat)
+      endrow    = booking[2].gsub(/\:\d+/,"").to_i
+      endseat   = booking[2].gsub(/\d+:/,"").to_i
+      booking   = BookingRequest.new(id,startrow,startseat,endrow,endseat)
       booking_table << booking.booking_request
     end
   booking_table
@@ -88,11 +90,11 @@ def process_bookings(file,cinema)
                                 make_booking(booking,cinema)
                               else
                                 invalid_booking_count += 1
-                                print  "Your booking Id Number: ",booking.id," has not been accepted ","\n"
+                                print  "Your booking Id Number: #{booking.id} has not been accepted ","\n"
                               end
                             }
   puts
-  puts "A total of #{valid_booking_count} bookings were made successfully and there were #{invalid_booking_count} unsuccessful booking requests"                       
+  puts "A total of #{valid_booking_count} bookings were made successfully and there were #{invalid_booking_count} unsuccessful booking requests in #{file}"                       
   puts;puts "------------------------------------------------------";puts
 end
 

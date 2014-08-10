@@ -39,6 +39,7 @@ describe Cinema do
       expect(everyman.auditorium[99][49]).to eq 1
 
     end
- 
+
  end
+ 
 end

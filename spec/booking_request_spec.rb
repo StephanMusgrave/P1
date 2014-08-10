@@ -112,8 +112,6 @@ describe BookingRequest do
      expect(check_singleton(booking8,odeon)).to be false
    end
 
-
   end
-
 
 end
