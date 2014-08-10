@@ -6,19 +6,23 @@ A technical test to develop a system to check booking requests.
 
 ## Technologies used
 |Technology                 |Used for                        |
-|---------------------------|--------------------------------|
-|Ruby 2.1.2                 |Programming language            |
-|Rspec                      |Test Driven Development - unit testing  |
+|--------------------------|--------------------------------|
+|Ruby 2.1.2                |Programming language            |
+|Rspec                     |Test Driven Development - unit testing  |
+|Apple Mac and OS X 10.9.4 |Hardware          |
 
 ## How to run the program:
 
-From your terminal:
+### From your terminal:
 
--$ git clone git@github.com:StephanMusgrave/cinema-booking.git
+  $ git clone git@github.com:StephanMusgrave/cinema-booking.git
 
--$ cd cinema-booking
+  $ cd cinema-booking
 
--$ ruby 'lib/process_bookings.rb' 'data/sample_booking_requests'
+  $ ruby 'lib/process_bookings.rb' 'data/sample_booking_requests'
+
+### To run the unit tests:
+  $ rspec
 
 ## Logic:
 - Obtain a booking request
