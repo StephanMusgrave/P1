@@ -26,13 +26,13 @@ A technical test to develop a system to check booking requests.
 
 ## Logic:
 - Obtain a booking request
--- check that all seats are on the same row
--- check that the number of seats is <= 5
--- check that each seat in the booking is not already taken
--- check that the number of any adjacent seats to the start and end of the proposed booking are != 1 (ie can be 0 or >1)
--- check that the seat number is between 0 and 49
--- check that the row number is betwwen 0 and 99
-- if no errors then make the booking
+- Check that all seats are on the same row
+- Check that the number of seats is <= 5
+- Check that each seat in the booking is not already taken
+- Check that the number of any adjacent seats to the start and end of the proposed booking are != 1 (ie can be 0 or >1)
+- Check that the seat number is between 0 and 49
+- Check that the row number is betwwen 0 and 99
+- If no errors then make the booking
 
 ## Project Brief:
 A cinema has a theatre of 100 rows, each with 50 seats. Customers request particular seats when making a booking.

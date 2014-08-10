@@ -94,7 +94,6 @@ def process_bookings(file,cinema)
   puts
   puts "A total of #{valid_booking_count} bookings were made successfully and there were #{invalid_booking_count} unsuccessful booking requests"                       
   puts;puts "------------------------------------------------------";puts
-  # cinema
 end
 
 empire = Cinema.new(100,50)
