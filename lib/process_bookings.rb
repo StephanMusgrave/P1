@@ -79,7 +79,7 @@ def process_bookings(file,cinema)
   booking_request_list = get_bookings(file)
   valid_booking_count = 0
   invalid_booking_count = 0
-  # puts "\e[H\e[2J","---------------------------------------------------";puts
+  puts "\e[H\e[2J","---------------------------------------------------";puts
 
   booking_request_list.each { | line |
                               booking = BookingRequest.new(line[0],line[1],line[2],line[3],line[4])
@@ -88,7 +88,7 @@ def process_bookings(file,cinema)
                                 make_booking(booking,cinema)
                               else
                                 invalid_booking_count += 1
-                                # print  "Your booking Id Number: ",booking.id," has not been accepted ","\n"
+                                print  "Your booking Id Number: ",booking.id," has not been accepted ","\n"
                               end
                              }
   puts

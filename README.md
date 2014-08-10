@@ -12,6 +12,8 @@ A technical test to develop a system to check booking requests
 
 ## How to run it:
 
+ruby 'lib/process_bookings.rb' 'data/sample_booking_requests'
+
 ## Logic:
 - Obtain a booking request
 -- check that all seats are on the same row
