@@ -14,7 +14,7 @@ describe Cinema do
       expect(odeon.auditorium.length).to eq 100
     end
 
-    it 'should only have empty seats when created' do
+    it 'should have empty seats when created' do
       # display_cinema(odeon)
       expect(odeon.auditorium[0][0]).to eq 0
       expect(odeon.auditorium[0][49]).to eq 0
@@ -26,7 +26,7 @@ describe Cinema do
 
   context "when fully booked" do
 
-    it 'should only have full seats' do
+    it 'should have full seats' do
       row = 0
       until row > 99
         everyman.auditorium[row].map! {|x| 1 }

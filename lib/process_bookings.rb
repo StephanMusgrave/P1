@@ -30,14 +30,14 @@ end
 def check_singleton(booking,cinema)
   startseat = booking.startseat
   endseat = booking.endseat
-  singleton = false
+  singleton_any = false
   singleton_before = false
   singleton_after = false
   singleton_before = true if ((cinema.auditorium[booking.startrow][startseat-1] == 0) && ((cinema.auditorium[booking.startrow][startseat-2] == 1) || (startseat - 2 < 0)))
   singleton_after  = true if ((cinema.auditorium[booking.startrow][endseat+1] == 0) && ((cinema.auditorium[booking.startrow][endseat+2] == 1) || (endseat + 2 > 49)))
   singleton_before = false if startseat == 0
   singleton_after = false if endseat == 49
-  singleton = true if ((singleton_before == true) || (singleton_after == true))
+  singleton_any = true if ((singleton_before == true) || (singleton_after == true))
   # puts "---" 
   # print cinema.auditorium[booking.startrow]; puts
   # print "startseat: ", startseat, ", endseat: ",endseat ; puts
@@ -46,7 +46,7 @@ def check_singleton(booking,cinema)
   # puts
   # print " before: ",singleton_before,", after: ",singleton_after,", singleton: ",singleton ; puts
   # puts "---" 
-  singleton
+  singleton_any
 end
 
 def check_booking(booking,cinema)
@@ -70,8 +70,6 @@ def get_bookings(filename)
       endseat = booking[2].gsub(/\d+:/,"").to_i
       booking = BookingRequest.new(id,startrow,startseat,endrow,endseat)
       booking_table << booking.booking_request
-      # print booking.id," ",booking.startrow," ",booking.startseat," ",booking.endrow," ",booking.endseat ;puts
-      # print booking, " ", id," ", startrow," ", startseat," ", endrow," ", endseat; puts
     end
   booking_table
 end
@@ -97,10 +95,9 @@ def process_bookings(file,cinema)
                                   make_booking(booking,cinema)
                                 else
                                   invalid_booking_count += 1
-                                  print "invalid booking ", booking.id, " ",invalid_booking_count
-                                  puts
+                                  # print invalid_booking_count, " invalid booking: ", booking.id, "\n"
                                 end
                              }
-  puts cinema                           
+                            
   cinema
 end
