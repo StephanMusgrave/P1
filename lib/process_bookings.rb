@@ -13,7 +13,7 @@ def check_seat(seat)
   result
 end
 
-def check_size(startseat,endseat)
+def check_block_size(startseat,endseat)
   result = ((endseat-startseat+1) <= 5 && (endseat-startseat+1) >=1) ? true : false
 end
 
@@ -38,20 +38,13 @@ def check_singleton(booking,cinema)
   singleton_before = false if startseat == 0
   singleton_after = false if endseat == 49
   singleton_any = true if ((singleton_before == true) || (singleton_after == true))
-  # puts "---" 
-  # print cinema.auditorium[booking.startrow]; puts
-  # print "startseat: ", startseat, ", endseat: ",endseat ; puts
-  # print cinema.auditorium[booking.startrow][startseat-2],cinema.auditorium[booking.startrow][startseat-1]
-  # print " <> ",cinema.auditorium[booking.startrow][endseat+1],cinema.auditorium[booking.startrow][endseat+2]
-  # puts
-  # print " before: ",singleton_before,", after: ",singleton_after,", singleton: ",singleton ; puts
-  # puts "---" 
   singleton_any
 end
 
 def check_booking(booking,cinema)
   validity = (  check_row(booking.startrow) &&
                 check_seat(booking.endseat) && 
+                check_block_size(booking.startseat,booking.endseat) &&
                 (booking.startrow == booking.endrow)
               )
   availability = check_available(booking,cinema)
@@ -83,21 +76,28 @@ def make_booking(booking,cinema)
 end
 
 def process_bookings(file,cinema)
-  # cinema = Cinema.new(100,50)
   booking_request_list = get_bookings(file)
   valid_booking_count = 0
   invalid_booking_count = 0
+  # puts "\e[H\e[2J","---------------------------------------------------";puts
+
   booking_request_list.each { | line |
-                               # print line, "\n"
-                               booking = BookingRequest.new(line[0],line[1],line[2],line[3],line[4])
-                               if check_booking(booking,cinema) 
-                                  valid_booking_count += 1
-                                  make_booking(booking,cinema)
-                                else
-                                  invalid_booking_count += 1
-                                  # print invalid_booking_count, " invalid booking: ", booking.id, "\n"
-                                end
+                              booking = BookingRequest.new(line[0],line[1],line[2],line[3],line[4])
+                             if check_booking(booking,cinema) 
+                                valid_booking_count += 1
+                                make_booking(booking,cinema)
+                              else
+                                invalid_booking_count += 1
+                                # print  "Your booking Id Number: ",booking.id," has not been accepted ","\n"
+                              end
                              }
-                            
-  cinema
+  puts
+  puts "A total of #{valid_booking_count} bookings were made successfully and there were #{invalid_booking_count} unsuccessful booking requests"                       
+  puts;puts "---------------------------------------------------";puts
+  # cinema
 end
+
+empire = Cinema.new(100,50)
+file = file_name || "data/sample_booking_requests"
+process_bookings(file,empire)
+

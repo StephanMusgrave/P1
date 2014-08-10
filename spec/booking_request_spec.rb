@@ -42,7 +42,7 @@ describe BookingRequest do
     end
 
     it 'should accept a booking of between 1 and 5 seats' do
-      expect(check_size(validbooking.startseat,validbooking.endseat)).to be true
+      expect(check_block_size(validbooking.startseat,validbooking.endseat)).to be true
     end
     
   end
@@ -58,12 +58,12 @@ describe BookingRequest do
     end
 
     it 'should not accept a booking of more than 5 seats' do
-      expect(check_size(invalidbooking.startseat,invalidbooking.endseat)).to be false
+      expect(check_block_size(invalidbooking.startseat,invalidbooking.endseat)).to be false
     end
 
     it 'should not accept a booking of less than 1 seats' do
       smallbooking = BookingRequest.new(2,1,4,1,3)
-      expect(check_size(smallbooking.startseat,smallbooking.endseat)).to be false
+      expect(check_block_size(smallbooking.startseat,smallbooking.endseat)).to be false
     end
     
   end

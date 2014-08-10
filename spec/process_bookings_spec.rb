@@ -30,13 +30,12 @@ describe "Processing a file of booking requests" do
 
   end
 
-  context "processing the bookings from the file file sample_booking_requests" do
+  context "processing the bookings from the file sample_booking_requests" do
 
-    it 'should read, check and make bookings for only the valid booking requests in sample_booking_requests' do
+    it 'should read, check and make bookings for the valid booking requests in sample_booking_requests' do
       empire = Cinema.new(100,50)
       file = "data/sample_booking_requests"
       process_bookings('data/sample_booking_requests',empire)
-      # empire.auditorium.each { |row| print row, "\n"}
       expect(empire.auditorium[0][0]).to   eq 0
       expect(empire.auditorium[0][3]).to   eq 1
       expect(empire.auditorium[8][18]).to  eq 1
