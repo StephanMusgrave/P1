@@ -47,7 +47,7 @@ def check_booking(booking,cinema)
                 check_block_size(booking.startseat,booking.endseat) &&
                 (booking.startrow == booking.endrow)
               )
-  availability = check_available(booking,cinema)
+  availability = check_available(booking,cinema) && (!check_singleton(booking,cinema))
   status = validity && availability 
   status
 end
