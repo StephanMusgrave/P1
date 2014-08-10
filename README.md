@@ -1,5 +1,5 @@
 #Cinema booking system
-A technical test to develop a sytem to check booking requests
+A technical test to develop a system to check booking requests
 
 ## Developed by
 [Steve Musgrave]
