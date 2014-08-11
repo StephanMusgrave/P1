@@ -13,6 +13,7 @@ class Cinema
 end
 
 def display_cinema(cinema)
+  # Method to disply all of the seats in a cinam on the screen
   row = 0
   while row < cinema.auditorium.length
     print row,"\t",cinema.auditorium[row] ; puts

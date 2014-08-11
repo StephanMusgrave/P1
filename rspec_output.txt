@@ -1,23 +1,4 @@
 
-------------------------------------------------------
-
-Your booking Id Number: 32 has not been accepted 
-Your booking Id Number: 78 has not been accepted 
-Your booking Id Number: 136 has not been accepted 
-Your booking Id Number: 143 has not been accepted 
-Your booking Id Number: 194 has not been accepted 
-Your booking Id Number: 294 has not been accepted 
-Your booking Id Number: 376 has not been accepted 
-Your booking Id Number: 386 has not been accepted 
-Your booking Id Number: 402 has not been accepted 
-Your booking Id Number: 411 has not been accepted 
-Your booking Id Number: 487 has not been accepted 
-
-A total of 489 bookings were made successfully and there were 11 unsuccessful booking requests
-
-------------------------------------------------------
-
-
 BookingRequest
   content
     should have an id
@@ -54,26 +35,7 @@ Processing a file of booking requests
     should be able to read the rows from the file sample_booking_requests
     should be able to read the seats from the file sample_booking_requests
   processing the bookings from the file sample_booking_requests
+    should read, check and make bookings for the valid booking requests in sample_booking_requests
 
-------------------------------------------------------
-
-Your booking Id Number: 32 has not been accepted 
-Your booking Id Number: 78 has not been accepted 
-Your booking Id Number: 136 has not been accepted 
-Your booking Id Number: 143 has not been accepted 
-Your booking Id Number: 194 has not been accepted 
-Your booking Id Number: 294 has not been accepted 
-Your booking Id Number: 376 has not been accepted 
-Your booking Id Number: 386 has not been accepted 
-Your booking Id Number: 402 has not been accepted 
-Your booking Id Number: 411 has not been accepted 
-Your booking Id Number: 487 has not been accepted 
-
-A total of 489 bookings were made successfully and there were 11 unsuccessful booking requests
-
-------------------------------------------------------
-
-    should read, check and make bookings for the 489 valid booking requests in sample_booking_requests
-
-Finished in 0.15712 seconds (files took 0.32881 seconds to load)
+Finished in 0.16187 seconds (files took 0.26061 seconds to load)
 24 examples, 0 failures

@@ -13,7 +13,7 @@ Your booking Id Number: 402 has not been accepted
 Your booking Id Number: 411 has not been accepted 
 Your booking Id Number: 487 has not been accepted 
 
-A total of 489 bookings were made successfully and there were 11 unsuccessful booking requests
+A total of 489 bookings were made successfully and there were 11 unsuccessful booking requests in data/sample_booking_requests
 
 ------------------------------------------------------
 

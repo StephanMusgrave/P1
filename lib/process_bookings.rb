@@ -28,6 +28,7 @@ def check_available(booking,cinema)
 end
 
 def check_singleton(booking,cinema)
+  # Method to check if the requested booking would result in a sinle empty seat at either end of the block
   startseat = booking.startseat
   endseat = booking.endseat
   singleton_any    = false
@@ -44,6 +45,8 @@ def check_singleton(booking,cinema)
 end
 
 def check_booking(booking,cinema)
+  # Method to check a) if the request is valid, b) if the seats are available in the cinema
+  #  and c) if the booking would result in a singleton
   validity = (  check_row(booking.startrow) &&
                 check_seat(booking.endseat) && 
                 check_block_size(booking.startseat,booking.endseat) &&
@@ -101,5 +104,6 @@ end
 empire = Cinema.new(100,50)
 file = file_name || "data/sample_booking_requests"
 process_bookings(file,empire)
+# uncomment the following line to allow a screen display of the cinema with empty and booked seats
 # display_cinema(empire)
 
