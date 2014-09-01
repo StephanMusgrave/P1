@@ -2,7 +2,6 @@ require 'cinema'
 
 describe Cinema do
   let (:odeon)    { Cinema.new(100,50) }
-  let (:everyman) { Cinema.new(100,50) }
 
   context "at set up" do
   
@@ -22,20 +21,11 @@ describe Cinema do
 
   end
 
-  context "when fully booked" do
+  context "can have booked seats" do
 
     it 'should have full seats' do
-      row = 0
-      until row > 99
-        everyman.auditorium[row].map! {|x| 1 }
-        row = row + 1
-      end
-      # display_cinema(everyman)
-      expect(everyman.auditorium[0][0]).to eq 1
-      expect(everyman.auditorium[0][49]).to eq 1
-      expect(everyman.auditorium[99][0]).to eq 1
-      expect(everyman.auditorium[99][49]).to eq 1
-
+      (odeon.cinema[0][0]).book!
+      expect((odeon.cinema[0][0]).booked?).to be true
     end
 
  end

@@ -5,13 +5,6 @@ class Cinema
     self
   end
 
-  # def create_cinema
-  #   cinema=[]
-  #   rows.times { cinema << Array.new(seats,Seat.new)}
-  #   cinema
-  # end
-
-
   def cinema
     @cinema
   end

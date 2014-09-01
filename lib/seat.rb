@@ -15,6 +15,7 @@ class Seat
 
   def unbook!
     @booked = false
+    self
   end
 
 
