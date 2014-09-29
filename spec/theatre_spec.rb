@@ -19,6 +19,10 @@ describe Theatre do
       expect((national.seat(99,49)).booked?).to be false
     end
 
+    it 'knows that the maximum acceptable booking is 5 seats' do
+      expect(national.max_booking).to eq 5
+    end
+
   end
 
   context "booked seats" do
