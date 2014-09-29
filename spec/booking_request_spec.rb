@@ -6,8 +6,8 @@ describe BookingRequest do
   let (:theatre) { Theatre.new(100) }
   it 'is initialized with 5 key value pairs' do
     booking_request2 = BookingRequest.new({:id => 0, :startrow=>77, :firstseat=>23, :endrow=>77})
-    expect(booking_request.all_fields?).to be true
-    expect(booking_request2.all_fields?).to be false
+    expect(booking_request.all_fields_present?).to be true
+    expect(booking_request2.all_fields_present?).to be false
   end
 
   it 'has a valid id' do
@@ -22,7 +22,7 @@ describe BookingRequest do
     expect(booking_request4.single_row?).to be false
   end
 
-  it 'knows if the rows are vaild' do
+  it 'knows if the rows are valid' do
     booking_request5 = BookingRequest.new({:id => 0, :startrow=>101, :firstseat=>23, :endrow=>101, :lastseat=>24})
     expect(booking_request.valid_rows?(theatre)).to eq true
     expect(booking_request5.valid_rows?(theatre)).to eq false
@@ -36,8 +36,8 @@ describe BookingRequest do
 
   it 'knows that the booking request is no greater than the maximum acceptable order' do
     booking_request7 = BookingRequest.new({:id => 0, :startrow=>1, :firstseat=>23, :endrow=>1, :lastseat=>33})
-    expect(booking_request.sizechecker(theatre)).to be true
-    expect(booking_request7.sizechecker(theatre)).to be false
+    expect(booking_request.size_checker(theatre)).to be true
+    expect(booking_request7.size_checker(theatre)).to be false
   end
 
   it 'knows that the seats requested are within the size of the row' do

@@ -6,7 +6,7 @@ class BookingRequest
     @booking_info = hash
   end
 
-  def all_fields?
+  def all_fields_present?
     booking_info.length == 5
   end
 
@@ -26,7 +26,7 @@ class BookingRequest
     booking_info[:firstseat] <= booking_info[:lastseat]
   end
 
-  def sizechecker(theatre)
+  def size_checker(theatre)
     theatre.max_booking >= (booking_info[:lastseat] - booking_info[:firstseat])
   end
 
