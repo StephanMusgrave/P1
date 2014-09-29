@@ -22,11 +22,16 @@ class BookingRequest
     booking_info[:startrow] <= theatre.theatre.count
   end
 
-  def check_seat_order
+  def seats_in_order?
     booking_info[:firstseat] <= booking_info[:lastseat]
   end
+
   def sizechecker(theatre)
     theatre.max_booking >= (booking_info[:lastseat] - booking_info[:firstseat])
+  end
+
+  def within_row?(theatre)
+    booking_info[:lastseat] <= (theatre.theatre[0].seats.count - 1)
   end
 
 end

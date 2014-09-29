@@ -30,8 +30,8 @@ describe BookingRequest do
 
   it 'knows that the the last seat is greater than or equal to the first seat' do
     booking_request6 = BookingRequest.new({:id => 0, :startrow=>1, :firstseat=>23, :endrow=>1, :lastseat=>22})
-    expect(booking_request.check_seat_order).to be true
-    expect(booking_request6.check_seat_order).to be false
+    expect(booking_request.seats_in_order?).to be true
+    expect(booking_request6.seats_in_order?).to be false
   end
 
   it 'knows that the booking request is no greater than the maximum acceptable order' do
@@ -39,6 +39,17 @@ describe BookingRequest do
     expect(booking_request.sizechecker(theatre)).to be true
     expect(booking_request7.sizechecker(theatre)).to be false
   end
+
+  it 'knows that the seats requested are within the size of the row' do
+    booking_request8 = BookingRequest.new({:id => 0, :startrow=>1, :firstseat=>48, :endrow=>1, :lastseat=>50})
+    expect(booking_request.within_row?(theatre)).to be true
+    expect(booking_request8.within_row?(theatre)).to be false
+  end
+
+
+
+
+
 
 
 end
