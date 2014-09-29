@@ -10,13 +10,13 @@ describe Theatre do
     end
 
     it 'should have 50 seats in a row' do
-      expect(national.theatre[0].length).to eq 50
+      expect(national.theatre[0].size).to eq 50
     end
 
     it 'should have empty seats when created' do
       # national.display
-      expect((national.theatre[0][0]).booked?).to be false
-      expect((national.theatre[99][49]).booked?).to be false
+      expect((national.seat(0,0)).booked?).to be false
+      expect((national.seat(99,49)).booked?).to be false
     end
 
   end
@@ -24,8 +24,8 @@ describe Theatre do
   context "booked seats" do
 
     it 'should have booked seats after booking' do
-      (national.theatre[0][0]).book!
-      expect((national.theatre[0][0]).booked?).to be true
+      (national.theatre[0].seats[0]).book!
+      expect((national.theatre[0].seats[0]).booked?).to be true
     end
 
  end

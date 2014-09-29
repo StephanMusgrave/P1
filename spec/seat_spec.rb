@@ -17,6 +17,4 @@ describe Seat do
     expect(booked_seat).not_to be_booked
   end
 
-
-
 end

@@ -18,5 +18,4 @@ class Seat
     self
   end
 
-
 end
