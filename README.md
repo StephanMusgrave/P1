@@ -1,5 +1,7 @@
-#Cinema booking system
-A technical test to develop a system to check booking requests.
+#Theatre booking system
+A test to develop a system to check booking requests for a Theatre.
+
+Development in progress - not yet completed
 
 ## Developed by
 [Steve Musgrave]
