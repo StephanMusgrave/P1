@@ -18,26 +18,26 @@ class BookingRequest
     booking_info[:startrow] == booking_info[:endrow]
   end
 
-  def valid_rows?(theatre)
-    booking_info[:startrow] <= theatre.theatre.count
+  def valid_rows?(rows)
+    booking_info[:startrow] <= rows
   end
 
   def seats_in_order?
     booking_info[:firstseat] <= booking_info[:lastseat]
   end
 
-  def size_checker(theatre)
-    theatre.max_booking >= (booking_info[:lastseat] - booking_info[:firstseat])
+  def size_checker(max_booking)
+    max_booking >= (booking_info[:lastseat] - booking_info[:firstseat])
   end
 
-  def within_row?(theatre)
-    booking_info[:lastseat] <= (theatre.theatre[0].seats.count - 1)
+  def within_row?(seats)
+    booking_info[:lastseat] <= (seats - 1)
   end
 
-  def valid?(theatre)
+  def valid?(seats, max_booking, rows)
     all_fields_present? && valid_id? && single_row? && 
-    valid_rows?(theatre) && seats_in_order? && 
-    size_checker(theatre) && within_row?(theatre)
+    valid_rows?(rows) && seats_in_order? && 
+    size_checker(max_booking) && within_row?(seats)
   end
 
 end
