@@ -3,6 +3,14 @@ require 'theatre'
 
 describe BookingRequest do
   let(:booking_request) { BookingRequest.new({:id => 0, :startrow=>77, :firstseat=>23, :endrow=>77, :lastseat=>24}) }
+  let(:booking_request2) { BookingRequest.new({:id => 0, :startrow=>77, :firstseat=>23, :endrow=>77}) }
+  let(:booking_request3) { BookingRequest.new({:id => -1, :startrow=>77, :firstseat=>23, :endrow=>77, :lastseat=>24}) }
+  let(:booking_request4) { BookingRequest.new({:id => 0, :startrow=>77, :firstseat=>23, :endrow=>78, :lastseat=>24}) }
+  let(:booking_request5) { BookingRequest.new({:id => 0, :startrow=>101, :firstseat=>23, :endrow=>101, :lastseat=>24}) }
+  let(:booking_request6) { BookingRequest.new({:id => 0, :startrow=>1, :firstseat=>23, :endrow=>1, :lastseat=>22}) }
+  let(:booking_request7) { BookingRequest.new({:id => 0, :startrow=>1, :firstseat=>23, :endrow=>1, :lastseat=>33}) }
+  let(:booking_request8) { BookingRequest.new({:id => 0, :startrow=>1, :firstseat=>48, :endrow=>1, :lastseat=>50}) }
+  
   let (:theatre) { Theatre.new(100) }
   it 'is initialized with 5 key value pairs' do
     booking_request2 = BookingRequest.new({:id => 0, :startrow=>77, :firstseat=>23, :endrow=>77})
@@ -44,6 +52,17 @@ describe BookingRequest do
     booking_request8 = BookingRequest.new({:id => 0, :startrow=>1, :firstseat=>48, :endrow=>1, :lastseat=>50})
     expect(booking_request.within_row?(theatre)).to be true
     expect(booking_request8.within_row?(theatre)).to be false
+  end
+
+  it 'knows if all of the internal tests for the booking request pass' do
+    expect(booking_request.valid?(theatre)).to be true
+    expect(booking_request2.valid?(theatre)).to be false
+    expect(booking_request3.valid?(theatre)).to be false
+    expect(booking_request4.valid?(theatre)).to be false
+    expect(booking_request5.valid?(theatre)).to be false
+    expect(booking_request6.valid?(theatre)).to be false
+    expect(booking_request7.valid?(theatre)).to be false
+    expect(booking_request8.valid?(theatre)).to be false
   end
 
 

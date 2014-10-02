@@ -34,4 +34,10 @@ class BookingRequest
     booking_info[:lastseat] <= (theatre.theatre[0].seats.count - 1)
   end
 
+  def valid?(theatre)
+    all_fields_present? && valid_id? && single_row? && 
+    valid_rows?(theatre) && seats_in_order? && 
+    size_checker(theatre) && within_row?(theatre)
+  end
+
 end
