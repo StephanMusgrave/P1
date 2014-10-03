@@ -1,8 +1,8 @@
-require "seat"
+require 'seat'
 
 describe Seat do
-  let(:seat)        { Seat.new}
-  let(:booked_seat) { Seat.new.book!}
+  let(:seat)        { Seat.new }
+  let(:booked_seat) { Seat.new.book! }
 
   it 'is empty when created' do
     expect(Seat.new).not_to be_booked

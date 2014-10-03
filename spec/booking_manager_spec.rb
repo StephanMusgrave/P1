@@ -4,17 +4,17 @@ describe BookingManager do
 
   let(:contents) { "(0,77:23,77:24),\n" }
   let(:contents2) { "(1,63:41,64:44),\n" }
-  let (:theatre) { double :theatre, :rows_per_theatre => 100, 
+  let (:theatre) { double :theatre, :rows_per_theatre => 100,
                                     :seats_per_row => 50,
                                     :max_booking => 5 }
-  let (:booking_manager) { BookingManager.new(theatre) } 
+  let (:booking_manager) { BookingManager.new(theatre) }
   
   it 'is initialized with a theatre' do
     expect(booking_manager.theatre).to eq theatre
   end
 
   it 'knows that the maximum acceptable booking is 5 seats' do
-      expect(booking_manager.max_booking).to eq 5
+    expect(booking_manager.max_booking).to eq 5
   end
 
   it 'knows how many rows are in the theatre' do
@@ -39,13 +39,14 @@ describe BookingManager do
     test = BookingRequest.new(booking_request_reader.process(booking_manager.read_request))
     test2 = BookingRequest.new(booking_request_reader.process(booking_manager.read_request))
     booking_manager.file_close
-    # This is wher we got to.  Should we try global varaibles?
+
+    # This is where we got to.  Should we try global varaibles?
     # expect(booking_manager.request_validity?(test, booking_manager.seats, booking_manager.max_booking, booking_manager.rows)).to be true
+    
     expect(test2.valid?(booking_manager.seats, booking_manager.max_booking, booking_manager.rows )).to be false
   end
 
 end
-
 
 # it "returns the correct parsed content" do
 #     File.should_receive(:read).with('/tmp/myfile').and_return(contents)

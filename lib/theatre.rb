@@ -1,5 +1,4 @@
-require_relative "row"
-
+require_relative 'row'
 
 class Theatre
 
@@ -16,14 +15,13 @@ class Theatre
     @theatre[0].size
   end
 
-def rows_per_theatre
+  def rows_per_theatre
     @theatre.count
   end
 
-
   def display
     # Method to display all of the seats in a theatre on the screen
-    @theatre.each { |row| print row,"\n" }
+    @theatre.each { |row| print row, "\n" }
   end
 
 end

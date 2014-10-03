@@ -7,11 +7,11 @@ Development in progress - not yet completed
 [Steve Musgrave]
 
 ## Technologies used
-|Technology                 |Used for                        |
+|Technology                 |Used for                       |
 |--------------------------|--------------------------------|
 |Ruby 2.1.2                |Programming language            |
 |Rspec                     |Test Driven Development - unit testing  |
-|Apple Mac and OS X 10.9.4 |Hardware          |
+|Apple Mac and OS X 10.9.4 |Hardware                        |
 
 ## How to run the program:
 

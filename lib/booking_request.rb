@@ -35,8 +35,8 @@ class BookingRequest
   end
 
   def valid?(seats, max_booking, rows)
-    all_fields_present? && valid_id? && single_row? && 
-    valid_rows?(rows) && seats_in_order? && 
+    all_fields_present? && valid_id? && single_row? &&
+    valid_rows?(rows) && seats_in_order? &&
     size_checker(max_booking) && within_row?(seats)
   end
 

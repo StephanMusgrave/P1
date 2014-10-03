@@ -3,10 +3,10 @@ class BookingManager
   MAXBOOKING = 5
 
   attr_reader :theatre, :rows, :seats
-  
+
   def initialize(theatre)
     @theatre = theatre
-    # @theatre_info = { :rows => theatre.rows_per_theatre, :seats => theatre.seats_per_row, :max => MAXBOOKING   }
+    # @theatre_info = { :rows => theatre.rows_per_theatre, :seats => theatre.seats_per_row, :max => MAXBOOKING }
     @rows = theatre.rows_per_theatre
     @seats = theatre.seats_per_row
   end
@@ -24,8 +24,8 @@ class BookingManager
     # File.readline(booking_requests)
   end
 
-  def request_validity?(booking_request,rows,seats,max_booking)
-    booking_request.valid?(seats,max_booking,rows)
+  def request_validity?(booking_request, rows, seats, max_booking)
+    booking_request.valid?(seats, max_booking, rows)
   end
 
   def max_booking

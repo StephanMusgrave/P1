@@ -1,4 +1,4 @@
-require "row"
+require 'row'
 
 describe Row do
 
@@ -13,7 +13,7 @@ it 'can be created with a specified number of seats' do
 end
 
 it 'can check the status of a seat within itself' do
-   row = Row.new
+  row = Row.new
   expect(row.seats[3].booked?).to be false
 end
 
